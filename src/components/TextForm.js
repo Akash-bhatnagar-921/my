@@ -51,7 +51,7 @@ export default function TextForm(props) {
     </div>
     <div className="container">
         <h2>Text Summary</h2>
-        <p>{text.split(' ').length} Words and {text.length} Characters</p>
+        <p>{text.split(' ').filter((element)=> {return element.length!==0}).length} Words and {text.length} Characters</p>
         <h2>Preview</h2>
         <p>{text = text === "" ? entryWord:text }</p>
     </div>

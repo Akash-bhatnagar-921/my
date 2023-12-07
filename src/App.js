@@ -4,7 +4,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [setLightMode, setDarkMode] = useState("light");
@@ -45,7 +45,6 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
       <Navbar
         modeType={setLightMode}
         toggleButton={toggleMode}
@@ -54,10 +53,9 @@ function App() {
       <Alert alerts={alert} />
       {/* <Router> */}
         <Routes>
-          <Route path="/" element={<TextForm heading="Enter your text here" btnMode={btn_Color} />}/>
-          <Route path="/about" element={<About />}/>
+          <Route exact path="/" element={<TextForm heading="Enter your text here" btnMode={btn_Color} />}/>
+          <Route exact path="/about" element={<About />}/>
         </Routes>
-      </BrowserRouter>
     </>
   );
 }
